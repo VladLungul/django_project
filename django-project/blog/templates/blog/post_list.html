@@ -1,0 +1,33 @@
+<head>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   <script>
+   document.addEventListener("DOMContentLoaded", setup);
+
+   function setup() {
+       var form = document.getElementById('form')
+       document.getElementById('post').onclick = post;
+   }
+
+   function post() {
+       text_post = form.querySelector('input[name=text_post]').value;
+       axios.post('http://localhost:8000/products',
+           {'text_post': text_post,}
+       )
+   }
+
+   </script>
+</head>
+<body>
+   <form id='form'>
+       <input type='text' name='text_post'>
+   </form>
+   <button id='post'>POST</button>
+</body>
+
+
+
+<div>
+    {% for post in posts %}
+    {{ post }}
+    {% endfor %}
+</div>
