@@ -1,0 +1,14 @@
+
+<form method="post">
+    {% csrf_token %}
+    Text: <input type='text' name='text_post'>
+    <input type="submit" value="Submit">
+</form>
+
+
+<div>
+    {% for post in posts %}
+    {{ post }}<br>
+    {% endfor %}
+</div>
+
